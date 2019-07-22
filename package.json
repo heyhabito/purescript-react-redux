@@ -1,11 +1,14 @@
 {
   "name": "purescript-react-redux",
-  "version": "6.1.0",
+  "version": "7.0.0",
   "private": true,
   "files": [],
   "scripts": {
-    "purs:compile": "purs compile 'src/**/*.purs' 'test/**/*.purs' 'bower_components/purescript-*/src/**/*.purs' 2>&1",
-    "pscid": "pscid"
+    "build": "spago build",
+    "test": "spago test",
+    "watch": "spago build --watch"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "purescript": "~0.13.0"
+  }
 }
