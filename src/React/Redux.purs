@@ -22,6 +22,8 @@ import Data.Function.Uncurried (Fn2, Fn3, Fn4, mkFn2, mkFn3, runFn4)
 
 import Prim.Row (class Union)
 
+import Record.Unsafe.Union (unsafeUnion)
+
 import Unsafe.Coerce (unsafeCoerce)
 
 import React as React
@@ -108,7 +110,7 @@ mergeProps
   -> Record dispatchProps
   -> Record ownProps
   -> Record props
-mergeProps stateProps dispatchProps ownProps = unionMerge ownProps (unionMerge dispatchProps stateProps)
+mergeProps stateProps dispatchProps ownProps = unsafeUnion ownProps (unsafeUnion dispatchProps stateProps)
 
 createElement
   :: forall state ownProps props action
@@ -189,15 +191,3 @@ foreign import reduxConnect_
          (Fn3 (Record stateProps) (Record dispatchProps) { } (Record props))
          (Record options)
          (React.ReactClass (Record props) -> ConnectClass' (Record state) (Record props) action)
-
--- | Temporarily including `unionMerge` to publish to Pursuit.
--- | See purescript/purescript-record#7
--- |
-unionMerge :: forall l r u. Union r l u => Record l -> Record r -> Record u
-unionMerge = unsafeMerge
-
-foreign import unsafeMerge
-  :: forall l r u
-  .  Record l
-  -> Record r
-  -> Record u
