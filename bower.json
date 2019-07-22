@@ -9,14 +9,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ethul/purescript-react-redux.git"
+    "url": "git://github.com/heyhabito/purescript-react-redux.git"
   },
   "ignore": [
     "*",
     "!src/**/*"
   ],
   "dependencies": {
-    "purescript-react": "^6.0.0",
+    "purescript-react": "^9.0.0",
     "purescript-strings": "^4.0.0",
     "purescript-nullable": "^4.0.0"
   }

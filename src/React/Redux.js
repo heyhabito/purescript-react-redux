@@ -20,9 +20,4 @@ exports.reduxConnect_ = exports.reduxConnect;
 
 exports.reduxProviderClass = ReactRedux.Provider;
 
-exports.unsafeMerge = function unsafeMerge(l) {
-  return function (r) {
-    var o = {};
-    return Object.assign(o, l, r);
-  };
-};
+exports.reduxDevtoolsExtensionEnhancer = !window.__REDUX_DEVTOOLS_EXTENSION__ ? function reduxDevtoolsExtensionEnhancer (a) { return a; } : window.__REDUX_DEVTOOLS_EXTENSION__();
