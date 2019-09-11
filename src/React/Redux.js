@@ -12,11 +12,12 @@ exports.reduxApplyMiddleware = function reduxApplyMiddleware(middleware){
   return Redux.applyMiddleware.apply(Redux, middleware);
 };
 
-exports.reduxConnect = function reduxConnect(mapStateToProps, mapDispatchToProps, mergeProps, options){
+var reduxConnect = function reduxConnect(mapStateToProps, mapDispatchToProps, mergeProps, options){
   return ReactRedux.connect(mapStateToProps, mapDispatchToProps, mergeProps, options);
 };
 
-exports.reduxConnect_ = exports.reduxConnect;
+exports.reduxConnect = reduxConnect;
+exports.reduxConnect_ = reduxConnect;
 
 exports.reduxProviderClass = ReactRedux.Provider;
 
